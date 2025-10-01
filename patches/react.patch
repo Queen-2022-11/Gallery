@@ -1,0 +1,51 @@
+diff --git a/node_modules/react-native-voice/android/build.gradle b/node_modules/react-native-voice/android/build.gradle
+index c0484f8..f9bd922 100644
+--- a/node_modules/react-native-voice/android/build.gradle
++++ b/node_modules/react-native-voice/android/build.gradle
+@@ -37,15 +37,13 @@ android {
+     }
+ }
+ 
+-buildscript {
+-    repositories {
+-        jcenter()
+-    }
+-    dependencies {
+-        classpath 'com.android.tools.build:gradle:1.5.0'
+-
+-        // NOTE: Do not place your application dependencies here; they belong
+-        // in the individual module build.gradle files
+-    }
+-}
++buildscript {
++    repositories {
++        google()
++        mavenCentral()
++    }
++    dependencies {
++        classpath 'com.android.tools.build:gradle:8.1.4'
++    }
++}
+ 
+ allprojects {
+-    repositories {
+-        jcenter()
+-    }
++    repositories {
++        google()
++        mavenCentral()
++    }
+ }
+ 
+ def supportVersion = rootProject.hasProperty('supportLibVersion') ? rootProject.supportLibVersion : DEFAULT_SUPPORT_LIB_VERSION
+ 
+ dependencies {
+-    compile fileTree(dir: 'libs', include: ['*.jar'])
+-    testCompile 'junit:junit:4.12'
+-    compile 'com.android.support:appcompat-v7:${supportVersion}'
+-    compile 'com.facebook.react:react-native:+'
++    implementation fileTree(dir: 'libs', include: ['*.jar'])
++    testImplementation 'junit:junit:4.12'
++    implementation "com.android.support:appcompat-v7:${supportVersion}"
++    implementation 'com.facebook.react:react-native:+'
+ }
